@@ -1,24 +1,46 @@
+# --------------------------
 # rules-bot.py
-# Bot to manage SICC Discord server
+# Sharing is Caring Community AKA SICC Discord server's rules bot
+# --------------------------
 
+# --------------------------
+# START OF rules-bot.py CODE
+# --------------------------
+
+# --------------------
+# Import Python module(s), package(s), function(s) and classe(s)
+# --------------------
 import os
 import logging
 import discord
 from discord.ext import commands
 
+# --------------------
+# Logging module
+# --------------------
 logging.basicConfig(level=logging.INFO)
 
-# --- INTENTS ---
+# --------------------
+# Discord.py Intent(s)
+# --------------------
+
+# Set of Discord.py defauly intents that includes only basic events (guilds, channels and emojis)
 intents = discord.Intents.default()
+
+# Enable Message Content Intent to allow the bot to read actual text of messages sent by user
 intents.message_content = True
-intents.members = True  # Needed to detect member joins
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+# Enable Discord members related gateway events and caching
+intents.members = True  
 
-# ---
+# Rules bot's commands for support e.g. !help
+rulesBot = commands.Bot(command_prefix="!", intents=intents)
+
+# --------------------
 # Detailed Rules in English and Chinese (for !rules command or DM)
-# ---
-rulesForSICC = """
+# --------------------
+
+rulesSICC = """
 ===========================================================
 📜 Sharing is Caring Community's AKA SICC's Server Rule(s)
 📜 Sharing is Caring Community AKA SICC 的规矩
@@ -33,7 +55,6 @@ Introduction
 ============
 
 In order to ensure a safe space for everyone in the Sharing is Caring Community AKA SICC, we hope that you are well aware of the general rule(s) that are given in this server as below. Kindly take note on the rule(s) and please behave according to the rules given as below.
-
 為了確保給大家在 Sharing is Caring Community AKA SICC 有一個安全的空间，我們希望你們会意识到一些 server 的规矩，麻煩请大家注意一下并请注意您的行为举止。
 
 =================================================================
@@ -42,7 +63,6 @@ TAKE NOTE OF THIS ONE TIME PERMANENT SICC DISCORD INVITATION LINK
 =================================================================
 
 Please keep in mind you received the one-off Discord server invitation from PANG himself. Thus, there will be NO second chance to rejoin once you quit from the SICC Discord server. In the meantime, any kind of reasons for rejoining the server are NOT accepted. Hence, please THINK TWICE before quitting the SICC discord server and treat this server like you visit other people's house. This is to in line with our goals to create a safe community for everyone who joined the SICC Discord server.
-
 请记住，PANG 本人只发出一次性 Discord的invite link。因此，一旦您退出 SICC Discord server将不再有第二次重新加入的机会。同时，任何重新加入Discord server的理由均不予受理。因此在您退出 SICC Discord server之前，请三思而后行并请表现像你访问别人的家一样，家有家规。这也符合了我们为所有加入 SICC Discord server的member 创建一个安全社区的目标。
 
 ===============================================
@@ -51,7 +71,6 @@ Consequence(s) IF NOT comply one of the rule(s)
 ===============================================
 
 ANY RESULT OF WRONGDOING(S) BELOW WILL BE GIVEN IN "PERMANENT BAN" FROM SHARING IS CARING COMMUNITY AKA SICC WITHOUT ANY WARNING(S).
-
 任何以下的不当行为都将在没有任何警告的情况下被 "永久封禁" 此 Sharing is Caring Community AKA SICC。
 
 =====================
@@ -161,84 +180,185 @@ PLEASE be MINDFUL before doing any necessary acts in the SICC.
 
 """
 
-# === VARIABLES (read from environment) ===
-# Set these in Railway → Project → Variables
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")        # required
-RULES_CHANNEL_ID = os.getenv("RULES_CHANNEL_ID")  # optional; numeric string
+# --------------------
+# VARIABLES (read from environment) ===
+# WARNING: Set these in Railway → Project → Variables
+# --------------------
 
+# Discord Bot Token *REQUIRED*
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")       
+
+# Rules Channel ID optional; numeric string
+RULES_CHANNEL_ID = os.getenv("RULES_CHANNEL_ID")  
+
+# Prompt error msgs if Discord Bot Token not exist
 if not DISCORD_TOKEN:
     raise RuntimeError("Missing DISCORD_TOKEN environment variable.")
 
+# Convert Rules text channel ID to Integer
 rules_channel_id_int = int(RULES_CHANNEL_ID) if RULES_CHANNEL_ID else None
 
-# --- helper: split long text to respect Discord limits ---
+# --------------------
+# Functions
+# Splits string into chunks of lines in order to respect the limits set by Discord
+# --------------------
 def chunk_text(s: str, limit: int):
+    # Split into line(s)
     lines = s.splitlines(keepends=True)
+    # Setup buffer and output
     buf, out = "", []
+    # Process each lines
     for ln in lines:
         if len(buf) + len(ln) > limit:
             out.append(buf)
             buf = ln
         else:
             buf += ln
+    # Add the last buffer (if not empty)
     if buf:
         out.append(buf)
+    # Return result(s)
     return out
 
+# --------------------
+# Async Functions
+# Splits SICC rules text into less than 4000 characters chunks
+# Send the SICC rules to SICC new members through DM
+# --------------------
 async def send_rules_embed(target: discord.abc.Messageable):
-    for part in chunk_text(rulesForSICC, 4000):  # embed description max ~4096
+    # Split rules text to at most 4000 characters as Discord embeds have a limit of 4096 characters for its descriptions
+    for part in chunk_text(rulesSICC, 4000):  
+        # Create new embed for SICC's discord rules
         embed = discord.Embed(
             title="📜 SICC's Server Rules",
             description=part,
             color=0x2ecc71
         )
+        # Send the created embed to the target channel which is SICC's new members through DM
         await target.send(embed=embed)
 
-# --- EVENTS ---
-@bot.event
+# --------------------
+# Async Functions
+# Ensure the SICC rules bot automatically post the rules in the rules text channel on startup
+# Scan the last 50 messages to prevent duplicates if the rules are already existed in the rules text channel
+# --------------------
+# Run once rules bot has successfully connected to Discord
+@rulesBot.event
 async def on_ready():
-    print(f"✅ Logged in as {bot.user}")
+    # Print confirmation in the console with the bot's username
+    print(f"✅ Logged in as {rulesBot.user}")
 
+    # Check if the rules channel ID is configured
     # Only try to post in rules channel if env var provided
     if rules_channel_id_int:
-        channel = bot.get_channel(rules_channel_id_int)
+        # Get the channel object
+        channel = rulesBot.get_channel(rules_channel_id_int)
+        # 
         if channel:
-            # Check if rules are already posted (last 50 msgs)
+            # Scan the recent messages
+            # Read the last 50 messages in the rules channel
             async for message in channel.history(limit=50):
-                if message.author == bot.user and message.embeds:
+                # If the message is sent by the SICC rules bot
+                if message.author == rulesBot.user and message.embeds:
+                    # The first embed has the title as shown below
                     if message.embeds[0].title == "📜 SICC's Server Rules":
+                        # Bots will print the message as shown below if the rules already exist in the rules text channel
                         print("ℹ️ Rules already posted, skipping...")
+                        # Stop the loop
                         break
+            # Else, the rules bot will post the SICC rules in the rules text channel
             else:
                 await send_rules_embed(channel)
+                # Prompt the success msgs once posted the rules in the console
                 print("✅ Rules posted in #rules channel")
 
-# --- COMMANDS ---
-@bot.command()
+# --------------------
+# Async Functions
+# Run the SICC rules bot when typing !rules command
+# --------------------
+# Register the below function as a bot command which is !rules
+@rulesBot.command()
+# Define the command function for !rules
+# ctx refers to context
 async def rules(ctx):
+    # Build an embed containing SICC Discord server rules and send to the specific channel
     await send_rules_embed(ctx)
 
-@bot.command()
+# --------------------
+# Async Functions
+# Run the SICC rules bot when typing !rules command
+# ONLY SICC Discord server member with admin permission can run this command
+# --------------------
+# Register the below function as a bot command which is !postrules
+@rulesBot.command()
+# Ensure that ONLY SICC Discord server member with admin permission can run this command 
 @commands.has_permissions(administrator=True)
+# Define the command function for !postrules
+# ctx refers to context
 async def postrules(ctx):
+    # If detected the rules text channel ID is not set
     if not rules_channel_id_int:
+        # SICC rules bot will prompt the important msgs
         await ctx.send("⚠️ RULES_CHANNEL_ID is not set in environment.")
+        # Stop the loop
         return
-    channel = bot.get_channel(rules_channel_id_int)
+    # Converts to usable Discord channel object which is rules text channel ID
+    channel = rulesBot.get_channel(rules_channel_id_int)
+    # If SICC rules bot found and match the right rules text channel ID
     if channel:
+        # Call the send_rules_embed function and send the rules embed to the rules text channel
         await send_rules_embed(channel)
-        await ctx.send("✅ Rules have been posted in the rules channel.")
+        # Prompt the msgs to the rules text channel where SICC Discord server member used !postrules command
+        await ctx.send("✅ SICC rules have been posted in the #rules text channel.")
+    # Else if SICC rules bot not able to find and match the right rules text channel ID
     else:
-        await ctx.send("⚠️ Rules channel not found. Please check the channel ID.")
+        # Prompt the msgs that the rules channel is not found and check the rules text channel ID
+        await ctx.send("⚠️ SICC rules channel not found. Please check the #rules text channel ID.")
 
-# DM rules to new members
-@bot.event
+# --------------------
+# Async Functions
+# List ALL usable bot commands for SICC rules bot
+# --------------------
+# Command: List all usable bot commands with !rulesbot
+@rulesBot.command(name="rulesbot")
+# Define the command list function for 
+# ctx refers to context
+async def list_commands(ctx):
+    # Create embed message for list of usable commands for SICC rules bot
+    embed = discord.Embed(
+        title="🤖 Usable commands for SICC rules bot",
+        description="Here’s a list of usable commands you can use for SICC rules bot:",
+        color=0x7289da
+    )
+    # Add fields for each of usable commands for SICC rules bot
+    embed.add_field(name="!rules", value="Show the detailed server rules.", inline=False)
+    embed.add_field(name="!postrules", value="(Admin only) Post/repost rules in the #rules channel.", inline=False)
+    embed.add_field(name="!rulesbot", value="List all available bot commands.", inline=False)
+    # Send the embed message into the text channel where the command was used
+    await ctx.send(embed=embed)
+
+# --------------------
+# Async Functions
+# SICC rules bot will send SICC Discord server rules to the new members through DM
+# --------------------
+# Discord event listener to trigger when new member joins SICC Discord server
+@rulesBot.event
+# Define the function when a new member joins SICC Discord server
 async def on_member_join(member):
     try:
-        for part in chunk_text(rulesForSICC, 1900):  # DM msg limit ~2000
+        # Using chunk_text that splits a long string into smaller pieces in order to split SICC server rules text into chunks of 1900 characters without hitting the limit that is set by Discord which is 2000 character(s) of msgs length limit for DM(s)
+        for part in chunk_text(rulesSICC, 1900):
+            # Send each part of rules text as DM to the new member
             await member.send(part)
+    # Ignore any error if Discord member closed DMs
     except Exception:
-        pass  # Ignore if user has DMs closed
+        pass
 
-# --- START ---
-bot.run(DISCORD_TOKEN)
+# --------------------
+# Login to Discord with the provided Discord bot token and run SICC rules bot with defined commands and events as above
+# --------------------
+rulesBot.run(DISCORD_TOKEN)
+
+# ------------------------
+# END OF rules-bot.py CODE
+# ------------------------
