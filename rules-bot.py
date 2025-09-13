@@ -277,7 +277,9 @@ async def on_ready():
 # Run the SICC rules bot when typing !rules command
 # --------------------
 # Register the below function as a bot command which is !rules
-@rulesBot.command()
+@rulesBot.command(name="rules")
+# Ensure that ONLY SICC Discord server member with admin permission can run this command 
+@rules.has_permissions(administrator=True)
 # Define the command function for !rules
 # ctx refers to context
 async def rules(ctx):
@@ -286,13 +288,13 @@ async def rules(ctx):
 
 # --------------------
 # Async Functions
-# Run the SICC rules bot when typing !rules command
+# Run the SICC rules bot when typing !postrules command
 # ONLY SICC Discord server member with admin permission can run this command
 # --------------------
 # Register the below function as a bot command which is !postrules
-@rulesBot.command()
+@rulesBot.command(name="postrules")
 # Ensure that ONLY SICC Discord server member with admin permission can run this command 
-@commands.has_permissions(administrator=True)
+@postrules.has_permissions(administrator=True)
 # Define the command function for !postrules
 # ctx refers to context
 async def postrules(ctx):
@@ -317,25 +319,50 @@ async def postrules(ctx):
 
 # --------------------
 # Async Functions
-# List ALL usable bot commands for SICC rules bot
+# List ALL usable bot commands for SICC rules bot by typing !rulesbot
 # --------------------
 # Command: List all usable bot commands with !rulesbot
 @rulesBot.command(name="rulesbot")
+# Ensure that ONLY SICC Discord server member with admin permission can run this command 
+@rulesbot.has_permissions(administrator=True)
 # Define the command list function for 
 # ctx refers to context
 async def list_commands(ctx):
     # Create embed message for list of usable commands for SICC rules bot
     embed = discord.Embed(
-        title="🤖 Usable commands for SICC rules bot",
-        description="Here’s a list of usable commands you can use for SICC rules bot:",
+        title="🤖 Usable ADMIN ONLY commands for SICC rules bot",
+        description="Here’s a list of usable ADMIN ONLY command(s) you can use for SICC rules bot:",
         color=0x7289da
     )
-    # Add fields for each of usable commands for SICC rules bot
-    embed.add_field(name="!rules", value="Show the detailed server rules.", inline=False)
-    embed.add_field(name="!postrules", value="(Admin only) Post/repost rules in the #rules channel.", inline=False)
-    embed.add_field(name="!rulesbot", value="List all available bot commands.", inline=False)
+    # Check permission If the Discord member is Administrator permission
+    if ctx.author.guild_permissions.administrator:
+        # Add fields for each of usable commands for SICC rules bot
+        embed.add_field(name="!rulesbot", value="List all available SICC rules bot command(s).", inline=False)
+        embed.add_field(name="!rules", value="Show the detailed Discord server rule(s).", inline=False)
+        embed.add_field(name="!postrules", value="Post or Repost Discord server rule(s) in the #rules text channel.", inline=False)
     # Send the embed message into the text channel where the command was used
     await ctx.send(embed=embed)
+
+# --------------------
+# Async Functions
+# Custom error handler
+# Prompt an error message when Discord member with no Administrator permission using !rulesbot
+# --------------------
+# Error handler Decorator
+@list_commands.error
+# Define the function when to raise error when Discord member with no Administrator permission using the !rulesbot command
+async def list_commands_error(ctx, error):
+    # If the Discord member with no Admin permission tried to run !rulesbot command 
+    if isinstance(error, commands.MissingPermissions):
+        # Prompt the error message to the Discord member with no Admin permission
+        await ctx.send("❌ You don’t have permission to use this ADMIN ONLY command.")
+    # Handle unknown commands
+    elif isinstance(error, commands.CommandNotFound):
+        await ctx.send("❓ That command doesn’t exist.")
+        
+    # Handle other errors (optional, for debugging)
+    else:
+        raise error  # re-raise so you can still see errors in console
 
 # --------------------
 # Async Functions
