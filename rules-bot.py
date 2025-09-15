@@ -279,7 +279,7 @@ async def on_ready():
 # Register the below function as a bot command which is !rules
 @rulesBot.command(name="rules")
 # Ensure that ONLY SICC Discord server member with admin permission can run this command 
-@rules.has_permissions(administrator=True)
+@commands.has_permissions(administrator=True)
 # Define the command function for !rules
 # ctx refers to context
 async def rules(ctx):
@@ -294,7 +294,7 @@ async def rules(ctx):
 # Register the below function as a bot command which is !postrules
 @rulesBot.command(name="postrules")
 # Ensure that ONLY SICC Discord server member with admin permission can run this command 
-@postrules.has_permissions(administrator=True)
+@commands.has_permissions(administrator=True)
 # Define the command function for !postrules
 # ctx refers to context
 async def postrules(ctx):
@@ -324,7 +324,7 @@ async def postrules(ctx):
 # Command: List all usable bot commands with !rulesbot
 @rulesBot.command(name="rulesbot")
 # Ensure that ONLY SICC Discord server member with admin permission can run this command 
-@rulesbot.has_permissions(administrator=True)
+@commands.has_permissions(administrator=True)
 # Define the command list function for 
 # ctx refers to context
 async def list_commands(ctx):
