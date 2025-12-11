@@ -54,7 +54,7 @@ Introduction
 介绍
 ============
 
-In order to ensure a safe space for everyone in the Sharing is Caring Community AKA SICC, we hope that you are well aware of the general rule(s) that are given in this server as below. Kindly take note on the rule(s) and please behave according to the rules given as below.
+In order to ensure a safe space for everyone in the Sharing is Caring Community AKA SICC, we hope that you are well aware of the general rule(s) that are given in this server as below. Kindly take note on the rule(s) and please behave according to the rule(s) given as below.
 為了確保給大家在 Sharing is Caring Community AKA SICC 有一個安全的空间，我們希望你們会意识到一些 server 的规矩，麻煩请大家注意一下并请注意您的行为举止。
 
 =================================================================
@@ -66,117 +66,150 @@ Please keep in mind you received the one-off Discord server invitation from PANG
 请记住，PANG 本人只发出一次性 Discord的invite link。因此，一旦您退出 SICC Discord server将不再有第二次重新加入的机会。同时，任何重新加入Discord server的理由均不予受理。因此在您退出 SICC Discord server之前，请三思而后行并请表现像你访问别人的家一样，家有家规。这也符合了我们为所有加入 SICC Discord server的member 创建一个安全社区的目标。
 
 ===============================================
-Consequence(s) IF NOT comply one of the rule(s)
+Consequence(s) IF NOT comply ONE of the rule(s)
 什么后果如果不遵守其中一条规则
 ===============================================
 
-ANY RESULT OF WRONGDOING(S) BELOW WILL BE GIVEN IN "PERMANENT BAN" FROM SHARING IS CARING COMMUNITY AKA SICC WITHOUT ANY WARNING(S).
-任何以下的不当行为都将在没有任何警告的情况下被 "永久封禁" 此 Sharing is Caring Community AKA SICC。
+ANY RESULT OF WRONGDOING(S) MENTIONED BELOW WILL BE GIVEN IN "3 WARNING(S)" BEFORE GETTING PERMANENT BAN FROM SHARING IS CARING COMMUNITY AKA SICC WITHOUT ANY WARNING(S).
+如冒犯任何以下的不当行为都将在没有任何警告的情况下将会给予“3 次警告” 。“3 次警告”后就会被永久封禁。
+
+SICC ADMIN(S) ALSO HAVE THE RIGHTS TO BAN THE MEMBERS WHO DON'T COMPLY THE RULE(S) EVEN WITH 1 OR 2 REPEATED WARNING(S) PERMANENTLY WITH IMMEDIATELY EFFECT.
+SICC 的 Admin 也有权永久封禁不遵守规则的member，即使已经收到 1 或 2 次”重复性“的警告，封禁也将立即生效。
 
 =====================
 SICC's server rule(s)
 SICC的规矩
 =====================
 
-[#R1]
+[R1]
 FOLLOW any necessary guideline(s) set by Discord such as Discord’s Terms of Service [https://discord.com/terms], Discord’s Community Guidelines [https://discord.com/guidelines], Discord’s Partnership Code of Conduct [https://support.discord.com/hc/en-us/articles/360024871991-Discord-Partnership-Code-of-Conduct].
 遵守 Discord 制定的任何必要准则，例如 Discord 的服务条款 [https://discord.com/terms]、Discord 的社区准则 [https://discord.com/guidelines]、Discord 的合作伙伴行为准则 [https://support.discord.com/hc/en-us/articles/360024871991-Discord-Partnership-Code-of-Conduct]。
-[#R1]
+[R1]
 
-[#R2]
-PROHIBITED to share any Self-Promotion(s) with advertisement(s), referral link(s) for your own personal gain(s) and benefit(s).
-禁止分享任何自我推销。例如，通过广告、推荐链接来以获取个人的利益和好处。
-[#R2]
+[R2]
+PROHIBITED to send or share or forward any Self-Promotion(s) message(s) with or without advertisement(s) and referral link(s) for your own personal gain(s) and benefit(s).
+禁止发送或分享或转发任何带有或不带有广告和推荐链接的自我推销的信息以获取个人的利益和好处。
+[R2]
 
-[#R3]
+[R3]
 PROHIBITED to impersonate other member(s) including members and admin(s) from SICC. This include(s) using misleading username(s) or profile picture(s).
 禁止冒充其他成员。包括SICC的Admin和会员。这也包括使用误导性的用户名或头像。
-[#R3]
+[R3]
 
-[#R4]
-PROHIBITED to share any attachment(s) with malware or virus to promote phishing and scamming activities.
-禁止共享任何带有恶意软件或病毒的附件以促进网络钓鱼和诈骗活动。
-[#R4]
+[R4]
+PROHIBITED to send or share or forward any media(s) or attachment(s) with malware or virus to promote phishing and scamming activities.
+禁止发送或分享或转发任何含有恶意软件或病毒的媒体或附件来进行网络钓鱼和诈骗活动。
+[R4]
 
-[#R5]
-PROHIBITED any form of harassment such as religion, race, age, sex, sexual oriented, marital status, gender identity, nation origin and disability through verbal, cyberbullying or hate speech.
-禁止通过口头上、网络欺凌或仇恨言论进行任何形式的骚扰，例如宗教、种族、年龄、性别、性取向、婚姻状况、性别认同、国籍和残疾。
-[#R5]
+[R5]
+PROHIBITED any form of harassment such as religion, race, age, sex, sexual orientation, marital status, gender identity, nation origin and disability through verbal, cyberbullying or hate speech.
+禁止口头上、网络欺凌或仇恨言论进行任何形式的骚扰，例如,宗教、种族、年龄、性别、性取向、婚姻状况、性别认同、国籍和残疾的言语、网络欺凌或仇恨言论。
+[R5]
 
-[#R6]
-PROHIBITED to promote any sensitive topic(s) such as religion, politic ideology, low-quality content as this offend, hurt or create a non-inclusive environment.
-禁止宣传任何敏感话题，如宗教、政治意识形态、低质量内容，因为这会冒犯、伤害或创造不包容的环境
-[#R6]
+[R6]
+PROHIBITED to promote any sensitive topic(s) such as religion, political ideology, low-quality content (prank, sexual / racial discrimination, doxing , self-harm, cyberbullying, foul which can cause members uncomfortable to watch) might offends, hurts or creates a non-inclusive environment.
+禁止宣传任何敏感话题，例如宗教、政治意识形态、低质量内容（恶作剧、性/种族歧视、人肉搜索、自残、网络欺凌、令人不适的内容，可能会冒犯、伤害他人或造成不包容的环境）。
+[R6]
 
-[#R7]
-PROHIBITED to share or discuss any explicit, NSFW topic(s) and content(s) which includes image(s), video(s) and link(s).
-禁止分享或讨论任何色情、NSFW 主题和内容，包括图像、视频和链接。
-[#R7]
+[R7]
+PROHIBITED to send or share or forward or discuss any explicit, NSFW topic(s) and content(s) which includes image(s), video(s) and link(s).
+禁止发送或分享或转发或讨论任何色情、NSFW 主题和内容，包括图像、视频和链接。
+[R7]
 
-[#R8]
-PROHIBITED to share any sensitive information such as personal information or private conservation AKA DM or group conversation with and without any consent from any parties.
-禁止在经任何人同意和未经任何人同意的情况下分享任何敏感信息，如个人信息或私人对话 AKA DM 或群主对话。
-[#R8]
+[R8]
+PROHIBITED to send or forward or share any sensitive information such as personal information or private conservation AKA DM or group conversation with and without any consent from any parties.
+禁止在经任何人同意和未经任何人同意的情况下发送或转发或分享任何敏感信息，如个人信息或私人对话 AKA DM 或群主对话。
+[R8]
 
-[#R9]
+[R9]
 PROHIBITED to spam or mass spam message(s), emoji(s), GIF(s) and link(s). Ensure that every conversation is meaningful and on-topic for everyone.
 禁止发送垃圾信息或群发垃圾信息、表情符号、动图和链接。请确保每次对话都有意义且与主题相关。
-[#R9]
+[R9]
 
-========================
-SICC's server guidelines
+[R10]
+PROHIBITED to send or forward or share any media(s) or evidence(s) regarding to any viral and hot topic(s) incident(s) from any social media platform(s) to cause any unnecessary discussion(s).
+禁止通过任何社交媒体平台发送或转发或分享与任何热门话题事件相关的任何媒体或证据，以引起任何不必要的讨论。
+[R10]
+
+[R11]
+PROHIBITED to use any offensive or sexual explicit or NSFW wording(s), blank naming as your Discord display name or username.
+禁止使用任何冒犯性、色情或NSFW的词语，留空的名称作为您的 Discord 的display name或username。
+[R11]
+
+[R12]
+PROHIBITED to use any offensive, sexual explicit or NSFW image(s), GIF(s) as your Discord's profile picture.
+禁止使用任何冒犯性、色情或NSFW的图片、GIF作为您的 Discord 个人资料图片。
+[R12]
+
+[R13]
+PROHIBITED to use any offensive, sexual explicit or NSFW wording(s) in your Discord's status and about me description.
+禁止在您的 Discord 状态和个人简介中使用任何冒犯性、色情或NSFW的的词语。
+[R13]
+
+[R14]
+PROHIBITED server raiding which against Discord's Terms of Service guidelines.
+禁止恶意服务器攻击，这违反了 Discord 的服务条款。
+[R14]
+
+[R15]
+PROHIBITED mass-spamming Discord bot command(s) in the bot-related channel(s). Reasonably of using bot command(s) no more than 3 time(s).
+禁止在Discord bot 的相关频道内大量发送 Discord 的 bot command(s)。合理情况下使用机器人命令的次数不得超过 3 次。
+[R15]
+
+==========================
+SICC's server guideline(s)
 SICC的指导方针
-========================
+==========================
 
-[#G1]
-Our current mode of language for engagement are ENGLISH and CHINESE. To avoid language barrier during the engagement, any other languages are NOT welcome unless received the consent from server admins.
+[G1]
+Our current mode of language(s) for engagement are ENGLISH and CHINESE. Any other language(s) are NOT welcome to avoid any language(s) barrier during the engagement unless RECEIVED the consent from SICC admin(s) itself.
 我们目前是用英语和中文来交流。为避免出现一些语言障碍，我们不接受任何其他语言除非获得了admin的同意。
-[#G1]
+[G1]
 
-[#G2]
+[G2]
 NO blank, unpingable, offensive or absurdly long username(s), nickname(s) or even profile picture(s).
 禁止空白、无法 ping 通、冒犯性或过长的用户名、昵称甚至个人资料图片。
-[#G2]
+[G2]
 
-[#G3]
-AVOID spamming the same message across multiple channels.
+[G3]
+AVOID spamming the same message(s) across multiple channel(s).
 避免在多个渠道上发送相同的信息。
-[#G3]
+[G3]
 
-[#G4]
-DO NOT mass @mention server members or direct message (DM) SICC admin as every member(s) with “Admin” roles are here on their own accord. Please respect their freedom and time. Do not ping or direct message them out of the blue. They are human too.
+[G4]
+DO NOT mass @mention server member(s) or direct message (DM) SICC admin as every member(s) with “Admin” roles are here on their own accord. Please respect their freedom and time. Do not ping or direct message them out of the blue. They are human too.
 请勿群发 @mention server的会员或私信 (DM) SICC admin，因为所有拥有“Admin”角色的成员都是自愿加入的。请尊重他们的时间和自由，不要突发 ping 或私信给他们。他们和你一样也是人。
-[#G4]
+[G4]
 
-[#G5]
+[G5]
 KINDLY post your topic(s) or message(s) in any appropriate channel(s) which are relevant to the channel’s purpose and follow each channel-specific rule(s) and purpose(s) at the same time.
 请在任何与频道目的相关的适当频道中发布您的主题或消息，并同时遵循每个频道特定的规则和目的。
-[#G5]
+[G5]
 
 =============
 Disclaimer(s)
 免责声明
 =============
 
-[#D1]
+[D1]
 EVERY RULE(S) are subjected to be CHANGE any time so please take note and do your part(s) to comply.
 每条规则都可能随时发生更改，因此请注意并尽力遵守。
-[#D1]
+[D1]
 
-[#D2]
-PLEASE take note that any violation of the rules that mentioned above will be resulted in permanent BANNED from participating SICC.
-请注意，任何违反以上的规则都将导致永久封禁参与SICC。
-[#D2]
+[D2]
+PLEASE take note that any rule(s) violation that mentioned above will be resulted in permanent BANNED from participating SICC Discord server.
+请注意，任何违反以上的规则都将导致永久封禁参与SICC的Discord server。
+[D2]
 
-[#D3]
+[D3]
 ONCE you have react ✅ in the ⁠⁠✅-verify-yourself channel, you are AGREE to adhere every rule(s) as mentioned above.
 一旦您在⁠⁠✅-verify-yourself 频道中react ✅，即表示您同意遵守上述所有规则。
-[#D3]
+[D3]
 
-[#D4]
-PLEASE be MINDFUL before doing any necessary acts in the SICC.
-请在 SICC 进行任何必要行为之前，注意您的行为举止。
-[#D4]
+[D4]
+PLEASE be MINDFUL before doing any necessary act(s) in the SICC Discord server.
+请在 SICC的Discord server进行任何必要行为之前，注意您的行为举止。
+[D4]
 
 """
 
